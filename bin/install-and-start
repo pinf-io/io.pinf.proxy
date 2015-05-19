@@ -1,0 +1,35 @@
+#!/bin/bash
+# Source https://github.com/cadorn/bash.origin
+. "$BO_ROOT_SCRIPT_PATH"
+function init {
+	eval BO_SELF_BASH_SOURCE="$BO_READ_SELF_BASH_SOURCE"
+	BO_deriveSelfDir ___TMP___ "$BO_SELF_BASH_SOURCE"
+	PGS_DIR="$___TMP___"
+
+
+	BO_format "1" "HEADER" "Install and start proxy.pinf.io"
+
+
+echo "INSTALL AND START FROM BASE PATH: $PGS_DIR/.."
+
+	if BO_has "node" ; then
+
+echo "NODEJS INSTALLED!"
+
+		ps axuww
+		curl -v http://$OPENSHIFT_INTERNAL_IP:15000/
+
+echo "NOW START!"
+
+		node "$PGS_DIR/../server.js" &
+
+echo "AFTER START!"
+
+		ps axuww
+		curl -v http://$OPENSHIFT_INTERNAL_IP:15000/
+
+	fi
+
+	BO_format "1" "FOOTER"
+}
+init $@
