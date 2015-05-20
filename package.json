@@ -1,3 +1,22 @@
 {
-	"main": "server.js"
+	"name": "io.pinf.proxy",
+    "main": "server.js",
+    "dependencies": {
+	    "ws": "^0.7.2",
+	    "org.pinf.genesis.lib": "'0.1.x"
+    },
+    "config": {
+    	"io.pinf.proxy/0": {
+    		"port": 8080,
+    		"host": "127.0.0.1"
+		},
+		"org.pinf.genesis.lib/0": {
+			"api": {
+				"consumes": {
+					"config": "org.pinf.genesis.lib/0/config",
+					"WS": "ws"
+				}
+			}
+		}
+	}
 }
