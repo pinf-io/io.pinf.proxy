@@ -11,6 +11,8 @@ http.createServer(function (req, res) {
 }).listen(15000, process.env.OPENSHIFT_INTERNAL_IP);
 */
 
+console.log("io.pinf.proxy server loading");
+
 
 require('org.pinf.genesis.lib').forModule(require, module, function (API, exports) {
 
@@ -33,3 +35,4 @@ console.log("API.config", API.config);
 
 });
 
+console.log("io.pinf.proxy server loaded");
