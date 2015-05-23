@@ -3,7 +3,7 @@
     "main": "server.js",
     "dependencies": {
 	    "ws": "^0.7.2",
-	    "org.pinf.genesis.lib": "'0.1.x"
+	    "org.pinf.genesis.lib": "0.1.x"
     },
     "config": {
     	"io.pinf.proxy/0": {
