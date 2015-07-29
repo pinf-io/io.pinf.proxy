@@ -9,24 +9,15 @@ function init {
 
 	BO_format "1" "HEADER" "Install and start proxy.pinf.io"
 
-
-echo "INSTALL AND START FROM BASE PATH: $PGS_DIR/.."
-
 	if BO_has "node" ; then
 
-echo "NODEJS INSTALLED!"
-
-		ps axuww
-		curl -v http://$OPENSHIFT_INTERNAL_IP:15000/
-
-echo "NOW START!"
+#		ps axuww
+#		curl -v http://$OPENSHIFT_INTERNAL_IP:15000/
 
 		node "$PGS_DIR/../server.js" &
 
-echo "AFTER START!"
-
-		ps axuww
-		curl -v http://$OPENSHIFT_INTERNAL_IP:15000/
+#		ps axuww
+#		curl -v http://$OPENSHIFT_INTERNAL_IP:15000/
 
 	fi
 
