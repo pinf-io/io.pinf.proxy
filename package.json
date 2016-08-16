@@ -3,7 +3,7 @@
   "main": "server.js",
   "dependencies": {
     "bunyan": "^1.8.1",
-    "ccjson": "0.0.1",
+    "ccjson": "^0.1.0",
     "express": "^4.14.0",
     "http-hash-router": "^1.1.0",
     "http-proxy": "^1.14.0",
