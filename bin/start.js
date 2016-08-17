@@ -11,8 +11,10 @@ function main () {
     var ccjson = new CCJSON();
 
     return ccjson.parseFile(PATH.join(__dirname, "start.cc.json"), {
-        env: process.env,
-        verbose: VERBOSE
+        verbose: VERBOSE,
+        env: function (name) {
+            return process.env[name] || "";
+        }
     }).then(function (Config) {
 
         var config = new Config();

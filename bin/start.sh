@@ -20,6 +20,13 @@ function init {
 
 
         if BO_callPlugin "${pluginUri}" BO_Process_IsDaemonized; then
+
+            if [ ! -z "$1" ]; then
+                export _EXTRA_CONFIG_PATH="$1"
+            fi
+
+            BO_log "$VERBOSE" "_EXTRA_CONFIG_PATH: $_EXTRA_CONFIG_PATH"
+
             BO_run_node "${__BO_DIR__}/start.js"
         else
             BO_callPlugin "${pluginUri}" BO_Process_Daemonize "${__BO_DIR__}/start.sh"
@@ -29,6 +36,6 @@ function init {
         BO_format "${VERBOSE}" "FOOTER"
     }
 
-    Start $@
+    Start "$@"
 }
-init $@
+init "$@"

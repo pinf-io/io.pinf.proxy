@@ -1,7 +1,8 @@
 {
     "@": {
         "$": [
-            "{{__DIRNAME__}}/../api.0.cc.json"
+            "{{__DIRNAME__}}/../api.0.cc.json",
+            "!{{ENV._EXTRA_CONFIG_PATH}}"
         ],
         "start": {}
     },
