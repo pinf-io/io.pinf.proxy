@@ -12,10 +12,18 @@ function init {
         BO_format "${VERBOSE}" "HEADER" "Start"
 
 
-        # TODO: Use bash.origin.process to daemonize process.
+        # TODO: Use something like 'BO_PLUGIN_LOOKUP_PATHS' in 'bash.origin' to abstract this.
+        local pluginUri="${__BO_DIR__}/../../github.com~bash-origin~bash.origin.process/bash.origin.process.sh"
+        if [ ! -e "${pluginUri}" ]; then
+            pluginUri="bash.origin.process@master"
+        fi
 
 
-        BO_run_node "${__BO_DIR__}/start.js"
+        if BO_callPlugin "${pluginUri}" BO_Process_IsDaemonized; then
+            BO_run_node "${__BO_DIR__}/start.js"
+        else
+            BO_callPlugin "${pluginUri}" BO_Process_Daemonize "${__BO_DIR__}/start.sh"
+        fi
 
 
         BO_format "${VERBOSE}" "FOOTER"
