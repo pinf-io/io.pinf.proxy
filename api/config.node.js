@@ -24,6 +24,25 @@ exports.forLib = function (LIB) {
                                     }
                                 }
                             }, null, 4));
+                        }).then(function () {
+                            return LIB.FS.outputFileAsync(LIB.PATH.join(config.config.globalBasePath, "io.pinf.proxy/config.cc.json"), JSON.stringify({
+                                "@": {
+                                    "$": [
+                                        config.config.globalBasePath + "/../*/io.pinf.proxy/config.cc.json"
+                                    ],
+                                    "start": {}
+                                },
+                                "@io.pinf.proxy/server/0": {
+                                    "$io.pinf.proxy/server": {
+                                        "routes": config.routes || {}
+                                    }
+                                },
+                                "@start": {
+                                    "$start": {
+                                        "$io.pinf.proxy/server.server()->server": {}
+                                    }
+                                }
+                            }, null, 4));
                         });
                     }
                     return ensure._promise;
