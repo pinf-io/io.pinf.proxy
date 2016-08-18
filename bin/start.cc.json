@@ -8,6 +8,7 @@
     },
     "@io.pinf.proxy/server/0": {
         "$io.pinf.proxy/server": {
+            "port": 80,
             "routes": {
                 "/127.0.0.1/": {
                     "adapter": "html",
