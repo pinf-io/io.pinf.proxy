@@ -19,13 +19,13 @@ function init {
         fi
 
 
+        if [ ! -z "$1" ]; then
+            export EXTRA_CONFIG_PATH="$1"
+        fi
+        BO_log "${VERBOSE}" "EXTRA_CONFIG_PATH: $EXTRA_CONFIG_PATH"
+
+
         if BO_callPlugin "${pluginUri}" BO_Process_IsDaemonized; then
-
-            if [ ! -z "$1" ]; then
-                export EXTRA_CONFIG_PATH="$1"
-            fi
-
-            BO_log "${VERBOSE}" "EXTRA_CONFIG_PATH: $EXTRA_CONFIG_PATH"
 
             BO_run_node "${__BO_DIR__}/start.js"
         else
