@@ -10,6 +10,8 @@ function main () {
 
     var ccjson = new CCJSON();
 
+    console.log("EXTRA_CONFIG_PATH:", process.env.EXTRA_CONFIG_PATH);
+
     return ccjson.parseFile(PATH.join(__dirname, "start.cc.json"), {
         verbose: VERBOSE,
         env: function (name) {

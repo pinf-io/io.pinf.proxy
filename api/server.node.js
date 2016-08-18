@@ -13,6 +13,8 @@ exports.forLib = function (LIB) {
         const VERBOSE = true;
 
 
+        if (VERBOSE) console.log("ROUTES", config.routes);
+
 
         var proxy = HTTP_PROXY.createProxyServer({});
         proxy.on('error', function (err) {
