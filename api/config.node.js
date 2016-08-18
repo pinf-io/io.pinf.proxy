@@ -17,6 +17,9 @@ exports.forLib = function (LIB) {
                 function ensure () {
                     if (!ensure._promise) {
                         ensure._promise = LIB.Promise.try(function () {
+                            if (config.config.basePath === config.config.globalBasePath) {
+                                return null;
+                            }
                             return LIB.FS.outputFileAsync(LIB.PATH.join(config.config.basePath, "io.pinf.proxy/config.cc.json"), JSON.stringify({
                                 "@io.pinf.proxy/server/0": {
                                     "$io.pinf.proxy/server": {
@@ -25,16 +28,19 @@ exports.forLib = function (LIB) {
                                 }
                             }, null, 4));
                         }).then(function () {
+                            if (!config.config.globalBasePath) {
+                                return null;
+                            }
                             return LIB.FS.outputFileAsync(LIB.PATH.join(config.config.globalBasePath, "io.pinf.proxy/config.cc.json"), JSON.stringify({
                                 "@": {
                                     "$": [
-                                        config.config.globalBasePath + "/../*/io.pinf.proxy/config.cc.json"
+                                        config.config.globalBasePath + "/*/io.pinf.proxy/config.cc.json"
                                     ],
                                     "start": {}
                                 },
                                 "@io.pinf.proxy/server/0": {
                                     "$io.pinf.proxy/server": {
-                                        "routes": config.routes || {}
+                                        "routes": ((config.config.basePath === config.config.globalBasePath) && config.routes) || {}
                                     }
                                 },
                                 "@start": {
