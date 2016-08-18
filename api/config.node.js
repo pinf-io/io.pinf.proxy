@@ -34,7 +34,7 @@ exports.forLib = function (LIB) {
                             return LIB.FS.outputFileAsync(LIB.PATH.join(config.config.globalBasePath, "io.pinf.proxy/config.cc.json"), JSON.stringify({
                                 "@": {
                                     "$": [
-                                        config.config.globalBasePath + "/*/io.pinf.proxy/config.cc.json"
+                                        "../*/io.pinf.proxy/config.cc.json"
                                     ],
                                     "start": {}
                                 },
