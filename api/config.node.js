@@ -35,17 +35,11 @@ exports.forLib = function (LIB) {
                                 "@": {
                                     "$": [
                                         "../*/io.pinf.proxy/config.cc.json"
-                                    ],
-                                    "start": {}
+                                    ]
                                 },
                                 "@io.pinf.proxy/server/0": {
                                     "$io.pinf.proxy/server": {
                                         "routes": ((config.config.basePath === config.config.globalBasePath) && config.routes) || {}
-                                    }
-                                },
-                                "@start": {
-                                    "$start": {
-                                        "$io.pinf.proxy/server.server()->server": {}
                                     }
                                 }
                             }, null, 4));

@@ -6,5 +6,10 @@
         "io.pinf.proxy/server/0": {
             "$": "./api/server.cc.json"
         }
-    }
+    },
+    "@io.pinf.proxy/server/0": {
+        "$io.pinf.proxy/server": {
+            "port": 80
+        }
+    }    
 }

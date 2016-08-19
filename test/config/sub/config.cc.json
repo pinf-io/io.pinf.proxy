@@ -1,0 +1,12 @@
+{
+  "@io.pinf.proxy/server/0": {
+    "$io.pinf.proxy/server": {
+        "routes": {
+            "/127.0.0.1/": {
+                "adapter": "html",
+                "html": "<p>Hello World</p>"
+            }
+        }
+    }
+  }
+}
