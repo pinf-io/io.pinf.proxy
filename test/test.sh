@@ -12,6 +12,7 @@ function init {
         BO_format "${VERBOSE}" "HEADER" "Test"
 
 
+        export _BO_PROCESS_DAEMONIZED=1
         BO_sourcePrototype "${__BO_DIR__}/../bin/start.sh" "${__BO_DIR__}/config/config.cc.json"
 
 
